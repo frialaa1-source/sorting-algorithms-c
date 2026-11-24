@@ -1,16 +1,12 @@
 # Sorting Algorithms in C
 
-**Course:** Algorithms and Data Structures  
-**University:** Badji Mokhtar University – Annaba  
-**Academic year:** 2026–2027  
-**Author:** [Write your full name here]  
-**Group:** [Write your group here]
+
+**student:** friha allae errahmane 
+**class:** DD2
 
 ## 1. Project description
 
 This project implements five classical sorting algorithms in C, measures their execution time and process peak memory, checks sorting correctness, and compares their performance on reproducible input arrays.
-
-The implementations do not call built-in sorting functions.
 
 ## 2. Algorithms and theoretical complexity
 
@@ -22,7 +18,6 @@ The implementations do not call built-in sorting functions.
 | Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) |
 | Quick Sort (last-element pivot) | O(n log n) | O(n log n) | O(n²) | O(log n) average recursion stack; O(n) worst |
 
-Quick Sort uses the last element as the pivot (Lomuto partition). Already sorted or reverse-sorted data can cause its worst-case behavior.
 
 ## 3. Project structure
 
@@ -44,35 +39,6 @@ sorting-algorithms-c/
     └── test_sorting.c
 ```
 
-## 4. Requirements
-
-- A C compiler supporting C11 (GCC or MinGW-w64 GCC).
-- On Windows, the Windows SDK/MinGW headers providing `psapi.h` and the PSAPI library.
-- On Linux, the standard `getrusage` API.
-
-## 5. Compile and run
-
-Run these commands from the project root.
-
-### Linux
-
-```bash
-gcc -std=c11 -Wall -Wextra -O2 src/main.c src/sorting.c src/benchmark.c src/utils.c -o sorting
-./sorting
-```
-
-### Windows (MinGW-w64)
-
-```bash
-gcc -std=c11 -Wall -Wextra -O2 src/main.c src/sorting.c src/benchmark.c src/utils.c -o sorting.exe -lpsapi
-sorting.exe
-```
-
-Create the results directory if it does not exist:
-
-```bash
-mkdir results
-```
 
 ## 6. How to use the program
 
@@ -89,59 +55,3 @@ Each run is repeated five times. The reported execution time is the average CPU 
 - These operating-system values are process-level peak memory, not an exact measurement of the incremental memory allocated by one sorting function. They include the program and its input data. Since peak RSS is a high-water mark, later measurements in the same process may not decrease. This limitation should be considered when interpreting memory comparisons.
 - Merge Sort allocates an auxiliary array of `n` integers. The other algorithms sort in place, although Quick Sort uses recursive stack frames.
 - If Merge Sort cannot allocate its temporary array, its current implementation returns without sorting; the correctness check will expose this.
-
-## 8. Experimental results
-
-Run menu option `6` to generate `results/benchmark_results.csv`.
-
-Do not invent or manually fill measurement values. Add your actual results here after running the program.
-
-### Machine specifications
-
-Fill in the actual specifications of the computer used:
-
-- CPU: [model]
-- RAM: [capacity]
-- Operating system: [name and version]
-- Compiler: [GCC version]
-
-### Analysis
-
-After collecting your measurements, discuss:
-
-1. Which algorithm was fastest for each tested input size?
-2. How did the quadratic algorithms compare with Merge Sort and Quick Sort?
-3. Did the observed growth agree with the theoretical time complexities?
-4. How did the input size affect memory use?
-5. What limitations or unexpected results did you observe?
-
-## 9. Correctness tests
-
-Compile the test program:
-
-```bash
-gcc -std=c11 -Wall -Wextra -O2 tests/test_sorting.c src/sorting.c src/utils.c -o test_sorting
-```
-
-Run it:
-
-```bash
-./test_sorting
-```
-
-On Windows, run `test_sorting.exe`.
-
-## 10. GitHub
-
-Create a **public** repository, then push the project:
-
-```bash
-git init
-git add .
-git commit -m "Initial sorting algorithms implementation"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/sorting-algorithms-c.git
-git push -u origin main
-```
-
-Replace `YOUR_USERNAME` with your GitHub username. Add later commits for benchmarking, test results, and documentation updates.
