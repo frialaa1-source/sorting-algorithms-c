@@ -22,7 +22,6 @@ double get_peak_memory_mb(void)
 #else
     struct rusage usage;
     if (getrusage(RUSAGE_SELF, &usage) == 0) {
-        /* Linux reports ru_maxrss in KB; macOS reports bytes. */
 #ifdef __APPLE__
         return (double)usage.ru_maxrss / (1024.0 * 1024.0);
 #else
