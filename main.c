@@ -108,7 +108,6 @@ static void compare_all(void)
         }
 
         for (a = 0; a < 5; a++) {
-            /* Quadratic algorithms are deliberately limited to 10,000 items. */
             if (a < 3 && n > 10000)
                 continue;
 
