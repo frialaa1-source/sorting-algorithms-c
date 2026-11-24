@@ -53,7 +53,6 @@ void insertion_sort(int a[], int n)
     }
 }
 
-/* Merge the sorted ranges [left, mid] and [mid + 1, right]. */
 static void merge(int a[], int temp[], int left, int mid, int right)
 {
     int i = left, j = mid + 1, k = left;
@@ -93,14 +92,11 @@ void merge_sort(int a[], int n)
 
     temp = (int *)malloc((size_t)n * sizeof(int));
     if (temp == NULL) {
-        /* Allocation failure: leave the input unchanged. */
         return;
     }
     merge_sort_recursive(a, temp, 0, n - 1);
     free(temp);
 }
-
-/* Lomuto partition, using the last element as the pivot. */
 static int partition(int a[], int low, int high)
 {
     int pivot = a[high];
